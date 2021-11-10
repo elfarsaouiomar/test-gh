@@ -59,7 +59,7 @@ jobs:
         run: php phpcs.phar --colors --report=code  --standard=ruleset.xml app/ || true
 
       - name: run phpcbf.phar
-        run: php phpcbf.phar --colors --report=code  --standard=ruleset.xml app/
+        run: php phpcbf.phar --colors --report=code  --standard=ruleset.xml app/ || true
 
       - name: Commit files
         run: |
