@@ -56,10 +56,10 @@ jobs:
           curl -OL https://gist.githubusercontent.com/omarelfarsaoui/02b7234fa3b223dcda68307a752a7460/raw/9c2657f48162587fcbca2b9ad6760bdbfd20beaf/ruleset.xml
 
       - name: run phpcs.phar
-        run: php phpcs.phar --colors -report=code  --standard=ruleset.xml app/
+        run: php phpcs.phar --colors --report=code  --standard=ruleset.xml app/
 
       - name: run phpcbf.phar
-        run: php phpcbf.phar --colors -report=code  --standard=ruleset.xml app/
+        run: php phpcbf.phar --colors --report=code  --standard=ruleset.xml app/
 
       - name: Commit files
         run: |
