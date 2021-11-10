@@ -14,7 +14,7 @@ class EnsureTokenIsValidOrNot
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+     function handle(Request $request, Closure $next)
     {
         return $next($request);
     }
