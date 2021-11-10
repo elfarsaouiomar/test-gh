@@ -41,23 +41,12 @@ jobs:
       ##########################
       # Checkout the code base #
       ##########################
-      - name: get branch
-        run: echo ${{github.base_ref}}
-
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v5
-      - name: Running on the default branch.
-        if: steps.branch-name.outputs.is_default == 'true'
-        run: |
-          echo "Running on default: ${{ steps.branch-name.outputs.current_branch }}"
-        # Outputs: "Running on default: master".
 
       - name: Running on a pull request branch.
-        if: steps.branch-name.outputs.is_default == 'false'
-        run: |
-          echo "Running on pr: ${{ steps.branch-name.outputs.current_branch }}"
-        # Outputs: "Running on pr: feature/test".
+        run: echo ${{ steps.branch-name.outputs.current_branch }}
 
       # - name: Checkout Code
       #   uses: actions/checkout@v2
