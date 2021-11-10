@@ -11,7 +11,7 @@ class EnsureTokenIsValidOrNot
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \Closure  $next
+     * @param  \Closure                 $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
@@ -23,8 +23,8 @@ class EnsureTokenIsValidOrNot
 
 
 
-     public function index(Type $var = null)
+    public function index(Type $var = null)
     {
-       return true;
+        return true;
     }
 }
