@@ -6,6 +6,14 @@
 #################################
 name: Lint Code Base
 
+
+      
+# - name: Hello world
+#   run: echo ${{ github.event.pull_request.base.ref }}
+
+# - name: get branch 
+#   run: echo ${{ github.ref }}
+
 # Documentation:
 # https://help.github.com/en/articles/workflow-syntax-for-github-actions
 #
@@ -45,25 +53,22 @@ jobs:
         run: |
           curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
           curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+          curl -OL https://gist.githubusercontent.com/omarelfarsaoui/02b7234fa3b223dcda68307a752a7460/raw/9c2657f48162587fcbca2b9ad6760bdbfd20beaf/ruleset.xml
 
       - name: run phpcs.phar
-        run: |
-          php phpcs.phar --version
-          php phpcbf.phar --version
-      
-      - name: Hello world
-        run: echo ${{ github.event.pull_request.base.ref }}
-      
-      - name: get branch 
-        run: echo ${{ github.ref }}
+        run: php phpcs.phar --colors -report=code  --standard=ruleset.xml app/
 
-      # - name: Commit files
-      #   run: |
-      #     git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      #     git config --local user.name "github-actions[bot]"
-      #     git commit -m "Add changes" -a
-      # - name: Push changes
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     branch: ${{ github.ref }}
+      - name: run phpcbf.phar
+        run: php phpcbf.phar --colors -report=code  --standard=ruleset.xml app/
+
+      - name: Commit files
+        run: |
+          git config --local user.email "gihubaction-bot@github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Add changes" -a
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
