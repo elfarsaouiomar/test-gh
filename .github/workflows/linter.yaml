@@ -6,7 +6,6 @@
 #################################
 name: Lint Code Base
 
-#
 # Documentation:
 # https://help.github.com/en/articles/workflow-syntax-for-github-actions
 #
@@ -46,6 +45,11 @@ jobs:
         run: |
           curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
           curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+
+      - name: run phpcs.phar
+        run: |
+          php phpcs.phar --version
+          php phpcbf.phar --version
       
       - name: Hello world
         run: echo ${{ github.event.pull_request.base.ref }}
