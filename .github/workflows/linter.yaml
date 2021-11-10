@@ -80,5 +80,5 @@ jobs:
         uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: master
+          DEFAULT_BRANCH: ${{ steps.branch-name.outputs.current_branch }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
