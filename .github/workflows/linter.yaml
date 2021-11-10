@@ -38,15 +38,14 @@ jobs:
     # Load all steps #
     ##################
     steps:
-      ##########################
-      # Checkout the code base #
-      ##########################
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v5
 
       - name: Checkout Code
         uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.branch-name.outputs.current_branch }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
