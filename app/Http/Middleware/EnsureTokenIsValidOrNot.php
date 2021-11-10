@@ -25,6 +25,6 @@ class EnsureTokenIsValidOrNot
 
     public function index(Type $var = null)
     {
-        return true;
+        return trues;
     }
 }
