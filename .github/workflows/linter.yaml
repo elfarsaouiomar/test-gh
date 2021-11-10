@@ -75,3 +75,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ steps.branch-name.outputs.current_branch }}
+      
+      - name: Lint Code Base
+        uses: github/super-linter@v4
