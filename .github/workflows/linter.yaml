@@ -52,29 +52,29 @@ jobs:
         with:
           php-version: '7.3' 
 
-      - name: install phpcs and phpcbf
-        run: |
-          curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
-          curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
-          curl -OL https://gist.githubusercontent.com/omarelfarsaoui/02b7234fa3b223dcda68307a752a7460/raw/9c2657f48162587fcbca2b9ad6760bdbfd20beaf/ruleset.xml
+      # - name: install phpcs and phpcbf
+      #   run: |
+      #     curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+      #     curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+      #     curl -OL https://gist.githubusercontent.com/omarelfarsaoui/02b7234fa3b223dcda68307a752a7460/raw/9c2657f48162587fcbca2b9ad6760bdbfd20beaf/ruleset.xml
 
-      - name: run phpcs.phar
-        run: php phpcs.phar --colors --report=code  --standard=ruleset.xml app/ || true
+      # - name: run phpcs.phar
+      #   run: php phpcs.phar --colors --report=code  --standard=ruleset.xml app/ || true
 
-      - name: run phpcbf.phar
-        run: php phpcbf.phar --colors --report=code  --standard=ruleset.xml app/ || true
+      # - name: run phpcbf.phar
+      #   run: php phpcbf.phar --colors --report=code  --standard=ruleset.xml app/ || true
 
-      - name: Commit files
-        run: |
-          git config --local user.email "gihubaction-bot@github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -m "Add changes" -a
+      # - name: Commit files
+      #   run: |
+      #     git config --local user.email "gihubaction-bot@github.com"
+      #     git config --local user.name "github-actions[bot]"
+      #     git commit -m "Add changes" -a
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ steps.branch-name.outputs.current_branch }}
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: ${{ steps.branch-name.outputs.current_branch }}
       
       - name: Lint Code Base
         uses: github/super-linter@v4
