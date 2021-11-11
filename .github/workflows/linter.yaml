@@ -75,12 +75,21 @@ jobs:
       #   with:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     branch: ${{ steps.branch-name.outputs.current_branch }}
-      
+      ################################
+      # Run Linter against code base #
+      ################################
       - name: Lint Code Base
         uses: github/super-linter@v4
-        with:
-          fetch-depth: 0
         env:
           VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: ${{ steps.branch-name.outputs.current_branch }}
+          DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      # - name: Lint Code Base
+      #   uses: github/super-linter@v4
+      #   with:
+      #     fetch-depth: 0
+      #   env:
+      #     VALIDATE_ALL_CODEBASE: false
+      #     DEFAULT_BRANCH: ${{ steps.branch-name.outputs.current_branch }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
