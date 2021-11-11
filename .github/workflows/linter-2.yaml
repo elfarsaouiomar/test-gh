@@ -38,6 +38,10 @@ jobs:
         with:
           ref: test-2
           fetch-depth: 0
+          
+      - name: Check PHP syntax errors
+        uses: overtrue/phplint@3.0.3
+
 
       ################################
       # Run Linter against code base #
