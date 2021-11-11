@@ -82,8 +82,8 @@ jobs:
         uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: test-2
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
       
       # - name: Lint Code Base
       #   uses: github/super-linter@v4
